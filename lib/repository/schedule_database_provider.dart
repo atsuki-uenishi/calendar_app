@@ -1,4 +1,4 @@
-import 'schedule_model.dart';
+import '../model/schedule_model.dart';
 import 'package:calendar_app/service/schedule_db.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:drift/drift.dart';

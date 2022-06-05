@@ -12,7 +12,7 @@ import 'package:calendar_app/model/end_date_state.dart';
 import 'package:calendar_app/constants/date_format_constants.dart';
 import 'package:calendar_app/model/schedule_model.dart';
 import 'package:calendar_app/model/is_disabeld_state.dart';
-import 'package:calendar_app/model/schedule_database_provider.dart';
+import 'package:calendar_app/repository/schedule_database_provider.dart';
 import 'package:calendar_app/model/selected_schedule_provider.dart';
 import 'package:calendar_app/service/schedule_db.dart';
 

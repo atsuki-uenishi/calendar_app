@@ -11,7 +11,7 @@ import 'package:calendar_app/model/selected_day_state.dart';
 import 'package:calendar_app/constants/text_constants.dart';
 import 'package:calendar_app/constants/date_format_constants.dart';
 import 'package:calendar_app/view/schedules_list_view.dart';
-import 'package:calendar_app/model/schedule_database_provider.dart';
+import 'package:calendar_app/repository/schedule_database_provider.dart';
 
 class HomeView extends ConsumerWidget {
   HomeView({Key? key}) : super(key: key);

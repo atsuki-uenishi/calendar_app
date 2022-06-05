@@ -1,5 +1,5 @@
 import 'package:calendar_app/constants/text_constants.dart';
-import 'package:calendar_app/model/schedule_database_provider.dart';
+import 'package:calendar_app/repository/schedule_database_provider.dart';
 import 'package:calendar_app/routing/routes.dart';
 import 'package:flutter/material.dart';
 

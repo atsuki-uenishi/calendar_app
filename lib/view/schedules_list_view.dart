@@ -6,7 +6,7 @@ import 'package:calendar_app/model/selected_day_state.dart';
 import 'package:calendar_app/constants/date_format_constants.dart';
 import 'package:calendar_app/common/calendar_text_color.dart';
 import 'package:calendar_app/constants/text_constants.dart';
-import 'package:calendar_app/model/schedule_database_provider.dart';
+import 'package:calendar_app/repository/schedule_database_provider.dart';
 import 'package:calendar_app/service/schedule_db.dart';
 import 'package:calendar_app/model/selected_schedule_provider.dart';
 
