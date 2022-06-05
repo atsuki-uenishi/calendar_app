@@ -15,4 +15,5 @@ class TextConstants {
   static const String deleteScheduleText = '予定の削除';
   static const String deleteText = '削除';
   static const String deleteQuestionText = '本当にこの日の予定を削除しますか？';
+  static const String noScheduleText = '予定がありません。';
 }

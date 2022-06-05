@@ -113,6 +113,24 @@ class SchedulesListView extends ConsumerWidget {
                                       ConnectionState.done) {
                                     return CircularProgressIndicator();
                                   }
+                                  if (scheduleList?.length == 0) {
+                                    return Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: 300.0,
+                                        height: 400.0,
+                                        decoration: const BoxDecoration(
+                                            border: Border(
+                                          top: BorderSide(
+                                            color: Color(0xFFBDBDBD),
+                                          ),
+                                        )),
+                                        child:
+                                            Text(TextConstants.noScheduleText),
+                                      ),
+                                    );
+                                  }
                                   return Column(
                                     children: [
                                       for (ScheduleItemData item
