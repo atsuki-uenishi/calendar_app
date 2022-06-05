@@ -15,20 +15,20 @@ class SchedulesListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedDayProvider = ref.watch(selectedDayState.notifier);
+    final _selectedDayProvider = ref.watch(selectedDayState.notifier);
     final _selectedDay = ref.watch(selectedDayState);
 
-    final selectedScheduleProvider = ref.watch(selectedScheduleState.notifier);
+    final _selectedScheduleProvider = ref.watch(selectedScheduleState.notifier);
 
-    final selectedDayFormat =
+    final _selectedDayFormat =
         DateFormatConstants.schedulesListFormat.format(_selectedDay);
-    final daysOfWeek =
+    final _daysOfWeek =
         DateFormatConstants.dateFormatForDayOfWeek.format(_selectedDay);
 
-    final scheduleProvider = ref.watch(scheduleDatabaseProvider.notifier);
+    final _scheduleProvider = ref.watch(scheduleDatabaseProvider.notifier);
 
     Future<List<ScheduleItemData>> getScheduleItemList() async {
-      return await scheduleProvider.makeSelectedDayList(_selectedDay);
+      return await _scheduleProvider.makeSelectedDayList(_selectedDay);
     }
 
     void pushedScheduleAddView() {
@@ -62,12 +62,12 @@ class SchedulesListView extends ConsumerWidget {
                         }
 
                         if (details.primaryVelocity! < 0) {
-                          selectedDayProvider.update(
+                          _selectedDayProvider.update(
                               (state) => state.add(const Duration(days: 1)));
                           stayNavigator();
                         }
                         if (details.primaryVelocity! > 0) {
-                          selectedDayProvider.update((state) =>
+                          _selectedDayProvider.update((state) =>
                               state.subtract(const Duration(days: 1)));
                           stayNavigator();
                         }
@@ -82,9 +82,9 @@ class SchedulesListView extends ConsumerWidget {
                               children: [
                                 Text.rich(
                                   TextSpan(children: [
-                                    TextSpan(text: selectedDayFormat),
+                                    TextSpan(text: _selectedDayFormat),
                                     TextSpan(
-                                      text: '  ($daysOfWeek)',
+                                      text: '  ($_daysOfWeek)',
                                       style: TextStyle(
                                         color: CalendarTextColor.textColor(
                                             _selectedDay),
@@ -139,7 +139,7 @@ class SchedulesListView extends ConsumerWidget {
                                           padding: const EdgeInsets.all(10.0),
                                           child: GestureDetector(
                                             onTap: () {
-                                              selectedScheduleProvider
+                                              _selectedScheduleProvider
                                                   .update((state) => item);
                                               pushedScheduleEditView(item);
                                             },

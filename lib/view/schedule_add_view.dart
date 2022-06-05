@@ -23,7 +23,7 @@ class ScheduleAddView extends ConsumerWidget {
     final _endDateProvider = ref.watch(endDateState.notifier);
     final _isDisabledProvider = ref.watch(isDisabledState.notifier);
     final _allDayNotifier = ref.watch(allDayProvider.notifier);
-    final scheduleProvider = ref.watch(scheduleDatabaseProvider.notifier);
+    final _scheduleProvider = ref.watch(scheduleDatabaseProvider.notifier);
     final _defaultDate = ref.read(startDateState);
 
     TempScheduleItemData temp =
@@ -88,7 +88,7 @@ class ScheduleAddView extends ConsumerWidget {
                 child: ElevatedButton(
                   onPressed: _isDisabledState
                       ? () {
-                          scheduleProvider.writeData(temp);
+                          _scheduleProvider.writeData(temp);
                           Navigator.pushNamed(context, RouteGenerator.homeView);
                         }
                       : null,

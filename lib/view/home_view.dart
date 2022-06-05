@@ -25,14 +25,14 @@ class HomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedDayProvider = ref.watch(selectedDayState.notifier);
+    final _selectedDayProvider = ref.watch(selectedDayState.notifier);
     final _selectedDay = ref.watch(selectedDayState);
 
-    final scheduleItemsState = ref.watch(scheduleDatabaseProvider);
-    final scheduleItemsProvider = ref.watch(scheduleDatabaseProvider.notifier);
+    final _scheduleItemsState = ref.watch(scheduleDatabaseProvider);
+    final _scheduleItemsProvider = ref.watch(scheduleDatabaseProvider.notifier);
 
     Map<DateTime, List<String>> _eventsList = {};
-    for (var item in scheduleItemsProvider.state.scheduleItems) {
+    for (var item in _scheduleItemsProvider.state.scheduleItems) {
       if (item.startDate == item.endDate) {
         _eventsList[item.startDate] = [item.title];
       } else {
@@ -93,7 +93,7 @@ class HomeView extends ConsumerWidget {
                     side: const BorderSide(width: 1.0, color: Colors.grey),
                   ),
                   onPressed: () {
-                    selectedDayProvider.update((state) => now);
+                    _selectedDayProvider.update((state) => now);
                   },
                 ),
                 formatButtonVisible: false,
@@ -106,7 +106,7 @@ class HomeView extends ConsumerWidget {
                   currentTime: now,
                   locale: LocaleType.jp,
                   onConfirm: (date) {
-                    selectedDayProvider.update((state) => date);
+                    _selectedDayProvider.update((state) => date);
                   },
                 );
               },
@@ -114,7 +114,7 @@ class HomeView extends ConsumerWidget {
                 return isSameDay(_selectedDay, day);
               },
               onDaySelected: (selectedDay, day) {
-                selectedDayProvider.update((state) => selectedDay);
+                _selectedDayProvider.update((state) => selectedDay);
                 showDialog(
                     barrierDismissible: true,
                     context: context,

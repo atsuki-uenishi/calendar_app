@@ -25,10 +25,10 @@ class ScheduleEditView extends ConsumerWidget {
     final _endDateProvider = ref.watch(endDateState.notifier);
     final _isDisabledProvider = ref.watch(isDisabledState.notifier);
     final _allDayNotifier = ref.watch(allDayProvider.notifier);
-    final scheduleProvider = ref.watch(scheduleDatabaseProvider.notifier);
-    final selectedScheduleProvider = ref.read(selectedScheduleState);
+    final _scheduleProvider = ref.watch(scheduleDatabaseProvider.notifier);
+    final _selectedScheduleProvider = ref.read(selectedScheduleState);
 
-    ScheduleItemData scheduleItem = selectedScheduleProvider;
+    ScheduleItemData scheduleItem = _selectedScheduleProvider;
 
     TempScheduleItemData itemComparison = TempScheduleItemData(
         title: scheduleItem.title,
@@ -101,7 +101,7 @@ class ScheduleEditView extends ConsumerWidget {
                 child: ElevatedButton(
                   onPressed: _isDisabledState
                       ? () {
-                          scheduleProvider.updateData(temp, scheduleItem.id);
+                          _scheduleProvider.updateData(temp, scheduleItem.id);
                           _isDisabledProvider.update((state) => false);
                           _allDayNotifier.update((state) => false);
                           Navigator.pushNamed(context, RouteGenerator.homeView);
@@ -421,7 +421,7 @@ class ScheduleEditView extends ConsumerWidget {
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        scheduleProvider
+                                        _scheduleProvider
                                             .deleteData(scheduleItem);
                                         _isDisabledProvider
                                             .update((state) => false);
