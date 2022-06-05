@@ -52,6 +52,8 @@ class ScheduleEditView extends ConsumerWidget {
       _isDisabledProvider.update((state) => true);
     }
 
+    isDisabled();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[300],
